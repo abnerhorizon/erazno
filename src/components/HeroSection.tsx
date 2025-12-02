@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
-import { ChevronDown } from "lucide-react";
+import heroBackground from "@/assets/hero-background.png";
+import { Play } from "lucide-react";
 
 const HeroSection = () => {
   const scrollToPodcast = () => {
@@ -7,27 +8,33 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 gradient-hero opacity-90"></div>
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      ></div>
+      <div className="absolute inset-0 bg-black/30"></div>
       
-      <div className="container mx-auto px-4 relative z-10 text-center animate-slide-up">
-        <h1 className="text-5xl md:text-7xl font-black mb-6 text-white drop-shadow-lg">
-          Erazno y La Chokolata
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
-          El show más divertido de la radio. ¡Escúchanos en vivo o disfruta de nuestros mejores momentos!
-        </p>
-        <Button 
-          onClick={scrollToPodcast}
-          size="lg" 
-          className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform"
-        >
-          Escucha el Podcast Aquí
-        </Button>
-        
-        <div className="mt-12 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-white mx-auto" />
+      <div className="container mx-auto px-4 relative z-10 animate-slide-up">
+        <div className="max-w-2xl">
+          <p className="text-sm md:text-base uppercase tracking-wider text-accent font-semibold mb-3">
+            Episodio Especial.
+          </p>
+          <h1 className="text-[2.7rem] md:text-[4.05rem] font-black mb-6 text-white drop-shadow-lg leading-tight">
+            Desde Las Vegas <br />
+            en los Latin Grammy
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-white/90">
+            Platicamos con Luciano Luna, Mar Solis, Regulo Caro, Danny Lux, Alison Solis, Banda Renovación y más...
+          </p>
+          <Button 
+            onClick={scrollToPodcast}
+            size="lg" 
+            className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform bg-accent text-accent-foreground hover:bg-accent/90 font-bold flex items-center gap-3"
+          >
+            Escúchalo ahora
+            <Play className="h-5 w-5 fill-current" />
+          </Button>
         </div>
       </div>
     </section>
